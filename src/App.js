@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import AdminRegistration from './components/admin/AdminRegistration';
+import Dashboard from './components/user/Dashboard';
+import Login from './components/user/Login';
+import Signup from './components/user/Register';
+import GenerateWallet from './utils/GenerateWallet';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './App.css';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{marginTop : '-3.5rem'}}>
+      <BrowserRouter future={{ v7_relativeSplatPath: true }}>
+        <Routes>
+          <Route path="/" element ={<Signup/>} />
+          <Route path="/register" element ={<Signup/>} />
+          <Route path="/adminregister" element ={<AdminRegistration/>} />
+          <Route path="/login" element ={<Login/>} />
+          <Route path="/dashboard" element ={<Dashboard/>} />
+          <Route path="/generate-wallet" element={<GenerateWallet />} />
+
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
